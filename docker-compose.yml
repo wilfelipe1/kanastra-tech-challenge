@@ -1,0 +1,43 @@
+services:
+  s3:
+    image: localstack/localstack:3.4
+    ports:
+      - "4566:4566"
+    environment:
+      - SERVICES=s3
+      - DEFAULT_REGION=us-east-1
+      - AWS_ACCESS_KEY_ID=test
+      - AWS_SECRET_ACCESS_KEY=test
+    volumes:
+      - "./init-s3.py:/etc/localstack/init/ready.d/init-s3.py"
+  
+  db:
+    image: postgres:alpine3.20
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./backend/deps:/app
+
+  # api:
+  #   build: ./backend/deps
+  #   command: python manage.py runserver 0.0.0.0:8000
+  #   volumes:
+  #     - ./backend/deps:/app
+  #   ports:
+  #     - "8000:8000"
+  #   environment:
+  #     - DEBUG=1  # Defina como 0 em produção
+  #     - AWS_ACCESS_KEY_ID=test
+  #     - AWS_SECRET_ACCESS_KEY=test
+  #     - AWS_ENDPOINT_URL=http://localhost:4566
+  #   depends_on:
+  #     - s3
+  #   restart: always
+
+networks:
+  default:
+    driver: bridge

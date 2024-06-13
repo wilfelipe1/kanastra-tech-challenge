@@ -1,0 +1,7 @@
+dependency-injector
+boto3
+django
+djangorestframework
+celery
+django-cors-headers
+psycopg2
