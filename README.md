@@ -1,8 +1,5 @@
 # kanastra-tech-challenge
 
-## Descrição breve
-Uma breve descrição sobre o que a aplicação faz e quais problemas ela resolve.
-
 ## Pré-requisitos
 Antes de iniciar, você precisará ter instalado em sua máquina as seguintes ferramentas:
 - [Docker](https://www.docker.com/get-started)
