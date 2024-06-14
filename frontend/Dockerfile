@@ -14,7 +14,7 @@ WORKDIR /app
 COPY package.json bun.lockb ./
 
 # Instala as dependências do projeto
-RUN bun install
+RUN yarn
 
 # Copia os arquivos restantes do projeto para o diretório de trabalho
 COPY . .
