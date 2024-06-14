@@ -1,11 +1,11 @@
 import axios from 'axios';
 import toast from 'react-simple-toasts';
+const baseURL = import.meta.env.VITE_API_URL;
 
 const uploadFile = async (file: File) => {
     let uploadUrl: string;
     try {
-        const apiUrl = process.env.API_URL
-        const initResponse = await axios.post(process.env.API_URL, {
+        const initResponse = await axios.post(`${baseURL}/files`, {
             name: file.name,
             type: file.type
         }, {
@@ -36,7 +36,7 @@ const uploadFile = async (file: File) => {
 
 const getFiles = async () => {
     try {
-        const response = await axios.get('http://localhost:8000/files');
+        const response = await axios.get(`${baseURL}/files`);
         return response.data;
     } catch (error: any) {
         toast('Failed to fetch files', { className: 'danger' });
@@ -46,7 +46,7 @@ const getFiles = async () => {
 const downloadFile = async (filePath: string) => {
     try {
         // Fazendo a solicitação para o endpoint de download
-        const response = await axios.get(`http://localhost:8000/files/${filePath}`);
+        const response = await axios.get(`${baseURL}/files/${filePath}`);
         const downloadUrl = response.data.download_url;
 
         const link = document.createElement('a');
