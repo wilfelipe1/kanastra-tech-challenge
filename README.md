@@ -37,7 +37,7 @@ A aplicação estará disponível em [http://localhost:8000](http://localhost:80
 A aplicação é projetada para ser simples de usar, ela permite aos usuários interagir com as features de upload, listagem e download de arquivos.
 
 ### Feature de Upload
-A funcionalidade de upload permite aos usuários enviar arquivos diretamente para um bucket S3. Optei por utilizar o Amazon S3 devido à sua alta escalabilidade, confiabilidade e velocidade. O S3 nos permite gerenciar grandes volumes de dados sem comprometer o desempenho da aplicação, o que acredito ser uma excelete opção para casos de arquivo com grande volume de dados.
+A funcionalidade de upload permite aos usuários enviar arquivos diretamente para um bucket S3. Optei por utilizar o Amazon S3 devido à sua alta escalabilidade, confiabilidade e velocidade. O S3 nos permite gerenciar grandes volumes de dados sem comprometer o desempenho da aplicação, o que acredito ser uma excelente opção para casos de arquivo com grande volume de dados.
 
 ### Listagem de arquivos
 No backend, implementei uma funcionalidade para listar os arquivos importados, a listagem é feita por meio de uma API que consulta em uma tabela do Postgres para recuperar metadados dos arquivos, como nome, tamanho e data de modificação, oferecendo uma visão detalhada e atualizada do conteúdo armazenado.
